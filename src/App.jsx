@@ -7,7 +7,7 @@ const products = [
     price: "Rp 55K",
     image:
       "/assets/coklat-stik.jpeg",
-    desc: "Classic homemade cookies loaded with premium chocolate chips",
+    desc: "Kue kering renyah dengan topping stik coklat.",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const products = [
     price: "Rp 55K",
     image:
       "/assets/kastengel.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+    desc: "Kue kering keju dengan tekstur renyah dan rasa keju yang gurih.",
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ const products = [
     price: "Rp 50K",
     image:
       "/assets/putri-salju.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+    desc: "Kue lembut berbentuk bulat yang dilapisi gula halus dengan rasa manis seimbang.",
   },
   {
     id: 4,
@@ -31,15 +31,15 @@ const products = [
     price: "Rp 55K",
     image:
       "/assets/nastar-klasik.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+    desc: "Kue lembut dengan isian selai nanas homemade dari buah nanas asli.",
   },
   {
     id: 5,
     name: "Sultan Cookies",
     price: "Rp 55K",
     image:
-      "/assets/sultan-cookies.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+      "/assets/sultan-cookies.png",
+    desc: "Kue kering berlapis dengan isian selai kurma dan tekstur lembut.",
   },
   {
     id: 6,
@@ -47,23 +47,23 @@ const products = [
     price: "Rp 55K",
     image:
       "/assets/sagu-keju.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+    desc: "Kue sagu dengan tekstur ringan dan rasa keju yang gurih.",
   },
   {
     id: 7,
     name: "Semprit",
     price: "Rp 50K",
     image:
-      "/assets/semprit.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+      "/assets/semprit.jpg",
+    desc: "Kue kering klasik dengan tekstur renyah dan rasa manis ringan.",
   },
   {
     id: 8,
     name: "Lidah Kucing",
     price: "Rp 40K",
     image:
-      "/assets/lidah-kucing.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+      "/assets/lidah-kucing.png",
+    desc: "Kue tipis dengan tekstur renyah dan rasa butter yang ringan.",
   },
   {
     id: 9,
@@ -71,7 +71,7 @@ const products = [
     price: "Rp 50K",
     image:
       "/assets/kurma-coklat.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+    desc: "Kurma yang dilapisi coklat dengan rasa manis alami.",
   },
   {
     id: 10,
@@ -79,15 +79,15 @@ const products = [
     price: "Rp 55K",
     image:
       "/assets/coklat-mede.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+    desc: "Kue kering coklat dengan topping kacang mede yang memberikan tekstur renyah.",
   },
   {
     id: 11,
     name: "Corn Flakes Cookies",
     price: "Rp 50K",
     image:
-      "/assets/coklat-mede.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+      "/assets/cornflesks-cookies.png",
+    desc: "Kue kering dengan campuran corn flakes yang renyah.",
   },
   {
     id: 12,
@@ -95,7 +95,7 @@ const products = [
     price: "Rp 50K",
     image:
       "/assets/crekers-cookies.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+    desc: "Kue kering dengan tekstur renyah dan rasa gurih.",
   },
   {
     id: 13,
@@ -103,7 +103,7 @@ const products = [
     price: "Rp 50K",
     image:
       "/assets/coklat-kacang.jpeg",
-    desc: "Rich buttery cookies with crunchy almond pieces",
+    desc: "Coklat dengan campuran kacang yang memberikan rasa gurih dan tekstur renyah.",
   }
 ];
 
@@ -175,7 +175,7 @@ Terimakasih banyak 🙏
             THREE COOKIES
           </h1>
           <p className="text-sm opacity-90">
-            Handcrafted with Love
+          Cookies Made with Love
           </p>
         </header>
 
@@ -188,16 +188,33 @@ Terimakasih banyak 🙏
           />
         </div> */}
 
-        {/* TITLE */}
-        <section className="px-4 pt-6">
-          <h2 className="text-lg font-semibold text-[#6b3a1e]">
-            Our Delicious Cookies
-          </h2>
-          <p className="text-sm text-[#8b5a3c] mt-1">
-            Freshly baked every day with premium ingredients
-          </p>
-        </section>
+      {/* TITLE */}
+      <section className="px-4 pt-6">
+        <h2 className="text-lg center font-bold text-[#6b3a1e]">
+          Kue Favorit yang Dipercaya Ribuan Pelanggan
+        </h2>
+        <div className="relative grid grid-cols-2 gap-3 mt-4">
+    <img
+      src="/assets/bukti-order-1.jpeg"
+      className="rounded-2xl shadow-md"
+    />
+    <img
+      src="/assets/bukti-order-2.jpeg"
+      className="rounded-2xl shadow-md"
+    />
 
+  </div>
+        <p className="text-md text-center text-[#8b5a3c] mt-1 leading-relaxed">
+        Sejak 2017, lebih dari 10.000+ kue kami telah menemani momen manis lebaran ribuan pelanggan.
+        </p>
+      </section>
+
+
+          <div>
+            <p className="text-lg flex justify-center font-bold text-[#6b3a1e] leading-relaxed mt-4">
+              Etalase Kue Kering
+            </p>
+          </div>
         {/* GRID PRODUK (2 KOLOM MAX) */}
         <section className="p-4">
           <div className="grid grid-cols-2 gap-4">
@@ -224,13 +241,21 @@ Terimakasih banyak 🙏
                   <p className="text-xs text-[#8b5a3c] mt-1">
                     {p.desc}
                   </p>
+                  <div className="mt-3 flex gap-2">
+                    <button
+                      onClick={() => setSelected(p)}
+                      className="flex-1 bg-[#7a3e1d] text-white text-xs py-2 rounded-full"
+                    >
+                      Lihat Detail
+                    </button>
 
-                 <button
-                    onClick={() => setSelected(p)}
-                    className="mt-3 w-full bg-[#7a3e1d] text-white text-xs py-2 rounded-full"
-                  >
-                    View Details
-                  </button>
+                    <button
+                      onClick={() => addToCart(p)}
+                      className="w-10 bg-[#7a3e1d] text-white rounded-full flex items-center justify-center"
+                    >
+                      🛒
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -259,7 +284,7 @@ Terimakasih banyak 🙏
             onClick={() => setSelected(null)}
           />
 
-          <div className="relative w-full max-w-[430px] h-[85vh] bg-[#fffaf0] rounded-t-3xl animate-slideUp overflow-y-auto">
+          <div className="relative w-full max-w-[430px] h-[85vh] bg-[#FFFBED] rounded-t-3xl animate-slideUp overflow-y-auto">
             <button
               onClick={() => setSelected(null)}
               className="absolute top-4 right-4 bg-[#7a3e1d] text-white w-9 h-9 rounded-full"
@@ -270,14 +295,20 @@ Terimakasih banyak 🙏
             <div className="p-4 pt-12">
               <img
                 src={selected.image}
-                className="rounded-2xl mb-4 w-full object-cover"
+                className="rounded-2xl mb-4 w-full h-96 object-cover"
               />
 
-              <h3 className="text-lg font-semibold text-[#6b3a1e]">
+              <h3 className="text-xl font-semibold text-[#6b3a1e]">
                 {selected.name}
               </h3>
-              <p className="text-[#7a3e1d] font-semibold mb-4">
+              <p className="text-[#7a3e1d] text-3xl font-bold mt-2 mb-4">
                 {selected.price}
+              </p>
+              <p className="text-[#7a3e1d] font-normal">
+                {selected.desc}
+              </p>
+              <p className="text-[#7a3e1d] text-md font-semibold mb-4">
+                Ukuran Toples 500 Gram
               </p>
 
               <button
@@ -287,7 +318,7 @@ Terimakasih banyak 🙏
                 }}
                 className="w-full bg-[#7a3e1d] text-white py-4 rounded-full font-medium"
               >
-                Add to Cart
+                Tambah ke keranjang
               </button>
             </div>
           </div>
