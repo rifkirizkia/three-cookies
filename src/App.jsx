@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const products = [
   {
@@ -109,6 +109,55 @@ const products = [
 
 export default function App() {
   const [selected, setSelected] = useState(null);
+  const [cart, setCart] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+
+    useEffect(() => {
+    document.body.style.overflow =
+      selected || cartOpen ? "hidden" : "auto";
+  }, [selected, cartOpen]);
+
+  const addToCart = (product) => {
+  setCart((prev) => {
+    const exist = prev.find((p) => p.id === product.id);
+    if (exist) {
+      return prev.map((p) =>
+        p.id === product.id ? { ...p, qty: p.qty + 1 } : p
+      );
+    }
+    return [...prev, { ...product, qty: 1 }];
+  });
+};
+const sendToWhatsApp = () => {
+  const phone = "6289668095182"; // GANTI NOMOR WA KAMU
+
+  const message = cart
+    .map(
+      (item, i) =>
+        `${i + 1}. ${item.name}\n   Qty: ${item.qty}\n   Price: ${item.price}`
+    )
+    .join("\n\n");
+
+  const totalQty = cart.reduce((sum, i) => sum + i.qty, 0);
+
+  const finalMessage = `
+Hallo THREE COOKIES 🍪
+Saya mau memesan kue berikut:
+
+${message}
+
+Total kue: ${totalQty}
+
+Terimakasih banyak 🙏
+  `;
+
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(
+    finalMessage
+  )}`;
+
+  window.open(url, "_blank");
+};
+
   return (
     /* BACKGROUND FULL */
     <div className="w-full min-h-screen flex justify-center bg-[#fff7e6]">
@@ -187,83 +236,150 @@ export default function App() {
             ))}
           </div>
         </section>
-        {selected && (
-          <div className="fixed inset-0 z-50 flex items-end justify-center">
-            {/* OVERLAY */}
-            <div
-              className="absolute inset-0 bg-black/50"
-              onClick={() => setSelected(null)}
-            />
+      </div>
 
-            {/* BOTTOM SHEET */}
-            <div className="relative w-full max-w-[430px] h-[90vh] bg-[#fffaf0] rounded-t-3xl animate-slideUp overflow-y-auto">
-              {/* CLOSE */}
+      {/* FLOATING CART ICON */}
+      {cart.length > 0 && (
+        <button
+          onClick={() => setCartOpen(true)}
+          className="fixed bottom-6 right-6 z-40 bg-[#7a3e1d] w-14 h-14 rounded-full flex items-center justify-center shadow-lg"
+        >
+          🛒
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">
+            {cart.reduce((sum, i) => sum + i.qty, 0)}
+          </span>
+        </button>
+      )}
+
+      {/* PRODUCT DETAIL MODAL */}
+      {selected && (
+        <div className="fixed inset-0 z-50 flex items-end justify-center">
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setSelected(null)}
+          />
+
+          <div className="relative w-full max-w-[430px] h-[85vh] bg-[#fffaf0] rounded-t-3xl animate-slideUp overflow-y-auto">
+            <button
+              onClick={() => setSelected(null)}
+              className="absolute top-4 right-4 bg-[#7a3e1d] text-white w-9 h-9 rounded-full"
+            >
+              ×
+            </button>
+
+            <div className="p-4 pt-12">
+              <img
+                src={selected.image}
+                className="rounded-2xl mb-4 w-full object-cover"
+              />
+
+              <h3 className="text-lg font-semibold text-[#6b3a1e]">
+                {selected.name}
+              </h3>
+              <p className="text-[#7a3e1d] font-semibold mb-4">
+                {selected.price}
+              </p>
+
               <button
-                onClick={() => setSelected(null)}
-                className="absolute top-4 right-4 bg-[#7a3e1d] text-white w-9 h-9 rounded-full"
+                onClick={() => {
+                  addToCart(selected);
+                  setSelected(null);
+                }}
+                className="w-full bg-[#7a3e1d] text-white py-4 rounded-full font-medium"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CART POPUP */}
+      {cartOpen && (
+        <div className="fixed inset-0 z-50 flex items-end justify-center">
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setCartOpen(false)}
+          />
+
+          <div className="relative w-full max-w-[430px] h-[80vh] bg-[#fffaf0] rounded-t-3xl animate-slideUp overflow-y-auto">
+            <div className="p-4 border-b flex justify-between items-center">
+              <h3 className="font-semibold text-[#6b3a1e]">
+                Your Cart
+              </h3>
+              <button
+                onClick={() => setCartOpen(false)}
+                className="w-8 h-8 bg-[#7a3e1d] text-white rounded-full"
               >
                 ×
               </button>
+            </div>
 
-              {/* CONTENT */}
-              <div className="p-4 pt-12">
-                <img
-                  src={selected.image}
-                  className="rounded-2xl mb-4 w-full object-cover"
-                />
-
-                <h3 className="text-lg font-semibold text-[#6b3a1e]">
-                  {selected.name}
-                </h3>
-                <p className="text-[#7a3e1d] font-semibold mb-3">
-                  {selected.price}
-                </p>
-
-                <h4 className="font-semibold text-[#6b3a1e] mb-1">
-                  Description
-                </h4>
-                <p className="text-sm text-[#8b5a3c] leading-relaxed">
-                  Our signature cookies are made with premium ingredients and baked fresh daily.
-                </p>
-
-                <h4 className="font-semibold text-[#6b3a1e] mt-4 mb-2">
-                  Ingredients
-                </h4>
-
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Premium flour",
-                    "Belgian chocolate chips",
-                    "Fresh butter",
-                    "Brown sugar",
-                    "Free-range eggs",
-                    "Pure vanilla extract",
-                  ].map((i) => (
-                    <span
-                      key={i}
-                      className="text-xs bg-yellow-100 px-3 py-1 rounded-full text-[#6b3a1e]"
-                    >
-                      {i}
-                    </span>
-                  ))}
-                </div>
-
-                <a
-                  href={`https://wa.me/6289668095182?text=Saya Pesan ${selected.name}`}
-                  className="block mt-6 bg-[#7a3e1d] text-white text-center py-4 rounded-full font-medium"
+            <div className="p-4 space-y-4">
+              {cart.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex justify-between items-center"
                 >
-                  Add to Cart
-                </a>
+                  <div>
+                    <p className="text-sm font-medium text-[#6b3a1e]">
+                      {item.name}
+                    </p>
+                    <p className="text-xs text-[#8b5a3c]">
+                      {item.price}
+                    </p>
+                  </div>
 
-                {/* DRAG INDICATOR */}
-                <div className="mt-6 flex justify-center">
-                  <div className="w-12 h-1 bg-gray-300 rounded-full" />
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() =>
+                        setCart((prev) =>
+                          prev
+                            .map((p) =>
+                              p.id === item.id
+                                ? { ...p, qty: p.qty - 1 }
+                                : p
+                            )
+                            .filter((p) => p.qty > 0)
+                        )
+                      }
+                      className="w-7 h-7 bg-gray-200 rounded-full"
+                    >
+                      −
+                    </button>
+
+                    <span>{item.qty}</span>
+
+                    <button
+                      onClick={() =>
+                        setCart((prev) =>
+                          prev.map((p) =>
+                            p.id === item.id
+                              ? { ...p, qty: p.qty + 1 }
+                              : p
+                          )
+                        )
+                      }
+                      className="w-7 h-7 bg-gray-200 rounded-full"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
-              </div>
+              ))}
+            </div>
+
+            <div className="p-4 border-t">
+              <button
+                onClick={sendToWhatsApp}
+                className="w-full bg-green-600 text-white py-4 rounded-full font-semibold"
+              >
+                Order via WhatsApp
+              </button>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
