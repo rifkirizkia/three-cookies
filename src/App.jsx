@@ -297,20 +297,20 @@ Terimakasih banyak 🙏
               <div className="p-3 flex flex-col flex-1">
               
             {/* HEADER AREA */}
-            <div className="flex items-center">
-          {/* Expanded (Flutter) */}
-          <div className=" flex-col w-6xl">
-            <h3 className="text-sm font-semibold text-[#6b3a1e] leading-snug line-clamp-2">
-              {p.name}
-            </h3>
+          <div className="flex items-center">
+            {/* Expanded (Flutter) */}
+            <div className=" flex-col w-6xl">
+              <h3 className="text-sm font-semibold text-[#6b3a1e] leading-snug line-clamp-2">
+                {p.name}
+              </h3>
 
-            <span className="mt-2 inline-block bg-[#7a3e1d] text-[#fff7e6] text-xs font-bold px-3 py-1 rounded-full w-fit">
-              {p.priceTag}
-            </span>
-          </div>
+              <span className="mt-2 inline-block bg-[#7a3e1d] text-[#fff7e6] text-xs font-bold px-3 py-1 rounded-full w-fit">
+                {p.priceTag}
+              </span>
+            </div>
 
-          {/* Image.asset (Flutter) */}
-          {p.badges?.map((badge, i) => (
+            {/* Image.asset (Flutter) */}
+            {p.badges?.map((badge, i) => (
                             <img
                               key={i}
                               src={badge}
@@ -318,7 +318,7 @@ Terimakasih banyak 🙏
                               className="w-18 h-18 object-contain"
                             />
                           ))}
-                </div>
+          </div>
           
                 {/* DESCRIPTION */}
                 <p className="text-xs text-[#8b5a3c] mt-2 line-clamp-2">
@@ -383,13 +383,25 @@ Terimakasih banyak 🙏
                 src={selected.image}
                 className="rounded-2xl mb-4 w-full h-96 object-cover"
               />
-
-              <h3 className="text-xl font-semibold text-[#6b3a1e]">
-                {selected.name}
-              </h3>
-              <div className="inline-block bg-[#7a3e1d] text-[#fff7e6] text-3xl font-bold px-8 py-3 rounded-full mt-2 mb-4 shadow-md">
-  {selected.priceTag}
-</div>
+              <div className="flex items-center justify-center">
+                <div className="flex-col w-6xl items-center justify-center">
+                  <h3 className="text-xl font-semibold text-[#6b3a1e]">
+                    {selected.name}
+                  </h3>
+                  <div className="inline-block bg-[#7a3e1d] text-[#fff7e6] text-3xl font-bold px-8 py-3 rounded-full mt-2 mb-4 shadow-md">
+                    {selected.priceTag}
+                  </div>
+                </div>
+                {selected.badges?.map((badge, i) => (
+                            <img
+                              key={i}
+                              src={badge}
+                              alt="badge"
+                              className="w-40 h-40 object-contain ml-4"
+                            />
+                          ))}
+              </div>
+              
               <p className="text-[#7a3e1d] font-normal">
                 {selected.desc}
               </p>
