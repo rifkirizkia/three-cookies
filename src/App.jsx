@@ -348,18 +348,18 @@ export default function App() {
       selected || cartOpen ? "hidden" : "auto";
   }, [selected, cartOpen]);
 
-const addToCart = () => {
+const addToCart = (product, variant) => {
   setCart((prev) => {
     const exist = prev.find(
       (i) =>
-        i.productId === selected.id &&
-        i.variantId === selectedVariant.id
+        i.productId === product.id &&
+        i.variantId === variant.id
     );
 
     if (exist) {
       return prev.map((i) =>
-        i.productId === selected.id &&
-        i.variantId === selectedVariant.id
+        i.productId === product.id &&
+        i.variantId === variant.id
           ? { ...i, qty: i.qty + 1 }
           : i
       );
@@ -368,12 +368,12 @@ const addToCart = () => {
     return [
       ...prev,
       {
-        productId: selected.id,
-        name: selected.name,
-        variantId: selectedVariant.id,
-        variantLabel: selectedVariant.label,
-        price: selectedVariant.price,
-        priceTag: selectedVariant.priceTag,
+        productId: product.id,
+        name: product.name,
+        variantId: variant.id,
+        variantLabel: variant.label,
+        price: variant.price,
+        priceTag: variant.priceTag,
         qty: 1,
       },
     ];
@@ -535,7 +535,7 @@ Terimakasih banyak 🙏
                     Lihat Detail
                   </button>
                   <button
-                    onClick={() => addToCart(p)}
+                    onClick={() => addToCart(p, p.variants[0])}
                     className="w-10 bg-[#7a3e1d] text-white rounded-full flex items-center justify-center"
                   >
                     🛒
@@ -606,36 +606,36 @@ Terimakasih banyak 🙏
                 {selected.desc}
               </p>
               <div className="mt-4">
-  <p className="text-sm font-semibold text-[#6b3a1e] mb-2">
-    Pilih Kemasan
-  </p>
+                <p className="text-sm font-semibold text-[#6b3a1e] mb-2">
+                  Pilih Kemasan
+                </p>
 
-<div className="flex gap-2 mb-4">
-  {selected.variants.map((v) => (
-    <button
-      key={v.id}
-      onClick={() => setSelectedVariant(v)}
-      className={`flex-1 rounded-xl border px-3 py-3 text-sm
-        ${
-          selectedVariant?.id === v.id
-            ? "border-[#7a3e1d] bg-[#fff2e0]"
-            : "border-gray-200 bg-white"
-        }`}
-    >
-      <div className="grid grid-cols-[1fr_auto] items-center gap-2">
-        <span className="font-medium text-[#6b3a1e] leading-tight">
-          {v.label}
-        </span>
+              <div className="flex gap-2 mb-4">
+                {selected.variants.map((v) => (
+                  <button
+                    key={v.id}
+                    onClick={() => setSelectedVariant(v)}
+                    className={`flex-1 rounded-xl border px-3 py-3 text-sm
+                      ${
+                        selectedVariant?.id === v.id
+                          ? "border-[#7a3e1d] bg-[#fff2e0]"
+                          : "border-gray-200 bg-white"
+                      }`}
+                  >
+                    <div className="grid grid-cols-[1fr_auto] items-center gap-2">
+                      <span className="font-medium text-[#6b3a1e] leading-tight">
+                        {v.label}
+                      </span>
 
-        <span className="font-bold text-[#7a3e1d] whitespace-nowrap">
-          {v.priceTag}
-        </span>
-      </div>
-    </button>
-  ))}
-</div>
+                      <span className="font-bold text-[#7a3e1d] whitespace-nowrap">
+                        {v.priceTag}
+                      </span>
+                    </div>
+                  </button>
+                ))}
+              </div>
 
-</div>
+              </div>
 
 
               <button
