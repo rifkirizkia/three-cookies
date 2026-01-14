@@ -340,7 +340,8 @@ export default function App() {
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(null);
-  
+  const [variantPopupOpen, setVariantPopupOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const formatRupiah = (number) =>
   `Rp ${number.toLocaleString("id-ID")}K`;
     useEffect(() => {
@@ -535,7 +536,11 @@ Terimakasih banyak 🙏
                     Lihat Detail
                   </button>
                   <button
-                    onClick={() => addToCart(p, p.variants[0])}
+                    onClick={() => {
+                      setSelectedProduct(p);
+                      setSelectedVariant(p.variants[0]); // default
+                      setVariantPopupOpen(true);
+                    }}
                     className="w-10 bg-[#7a3e1d] text-white rounded-full flex items-center justify-center"
                   >
                     🛒
@@ -548,6 +553,61 @@ Terimakasih banyak 🙏
           </div>
         </section>
       </div>
+      {variantPopupOpen && selectedProduct && (
+  <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40">
+    <div className="w-full max-w-md bg-[#fffaf0] rounded-t-3xl p-5">
+      
+      {/* HEADER */}
+      <div className="flex justify-between items-center mb-3">
+        <h3 className="text-lg font-bold text-[#6b3a1e]">
+          {selectedProduct.name}
+        </h3>
+        <button
+          onClick={() => setVariantPopupOpen(false)}
+          className="text-xl"
+        >
+          ✕
+        </button>
+      </div>
+
+      <p className="text-sm text-[#8b5a3c] mb-4">
+        {selectedProduct.desc}
+      </p>
+
+      {/* VARIANT OPTIONS */}
+      <div className="flex gap-3">
+        {selectedProduct.variants.map((v) => (
+          <button
+            key={v.id}
+            onClick={() => setSelectedVariant(v)}
+            className={`flex-1 px-3 py-3 rounded-xl border text-sm flex justify-between items-center
+              ${
+                selectedVariant?.id === v.id
+                  ? "border-[#7a3e1d] bg-[#fff2e0]"
+                  : "border-gray-200 bg-white"
+              }`}
+          >
+            <span className="font-medium">{v.label}</span>
+            <span className="font-bold text-[#7a3e1d] whitespace-nowrap">
+              {v.priceTag}
+            </span>
+          </button>
+        ))}
+      </div>
+
+      {/* ACTION */}
+      <button
+        onClick={() => {
+          addToCart(selectedProduct, selectedVariant);
+          setVariantPopupOpen(false);
+        }}
+        className="w-full mt-5 bg-[#7a3e1d] text-white py-4 rounded-full font-semibold"
+      >
+        Tambah ke Keranjang
+      </button>
+    </div>
+  </div>
+)}
 
       {/* FLOATING CART ICON */}
       {cart.length > 0 && (
@@ -640,7 +700,7 @@ Terimakasih banyak 🙏
 
               <button
                 onClick={() => {
-                  addToCart(selected);
+                  addToCart(selected, selectedVariant);
                   setSelected(null);
                 }}
                 className="w-full bg-[#7a3e1d] text-white py-4 rounded-full font-medium"
