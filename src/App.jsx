@@ -5,7 +5,7 @@ const products = [
     id: 1,
     name: "Coklat Stick",
     priceTag: "Rp 55K",
-    price: 50,
+    price: 55,
     image:
       "/assets/coklat-stik.jpeg",
     desc: "Kue kering renyah dengan topping stik coklat.",
