@@ -4,158 +4,334 @@ const products = [
   {
     id: 1,
     name: "Coklat Stick",
-    priceTag: "Rp 55K",
-    price: 55,
+    // priceTag: "Rp 55K",
+    // price: 55,
     image:
       "/assets/coklat-stik.jpeg",
     desc: "Kue kering renyah dengan topping stik coklat.",
     badges: [
       "/assets/best-seller.png",
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 60,
+        priceTag: "Rp 60K",
+      },
+    ],
   },
   {
     id: 2,
     name: "Kastengel",
-    priceTag: "Rp 55K",
-    price: 55,
+    // priceTag: "Rp 55K",
+    // price: 55,
     image:
       "/assets/kastengel.jpeg",
     desc: "Kue kering keju dengan tekstur renyah dan rasa keju yang gurih.",
     badges: [
       "/assets/best-seller.png"
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 60,
+        priceTag: "Rp 60K",
+      },
+    ],
   },
   {
     id: 3,
     name: "Putri Salju",
-    priceTag: "Rp 50K",
-    price: 50,
+    // priceTag: "Rp 50K",
+    // price: 50,
     image:
       "/assets/putri-salju.jpeg",
     desc: "Kue lembut berbentuk bulat yang dilapisi gula halus dengan rasa manis seimbang.",
     badges: [
       "/assets/best-seller.png",
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 50,
+        priceTag: "Rp 50K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+    ],
   },
   {
     id: 4,
     name: "Nastar",
-    priceTag: "Rp 55K",
-    price: 55,
+    // priceTag: "Rp 55K",
+    // price: 55,
     image:
       "/assets/nastar-klasik.jpeg",
     desc: "Kue lembut dengan isian selai nanas homemade dari buah nanas asli.",
     badges: [
       "/assets/best-seller.png"
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 60,
+        priceTag: "Rp 60K",
+      },
+    ],
   },
   {
     id: 5,
     name: "Sultan Cookies",
-    priceTag: "Rp 55K",
-    price: 55,
+    // priceTag: "Rp 55K",
+    // price: 55,
     image:
       "/assets/sultan-cookies.png",
     desc: "Kue kering berlapis dengan isian selai kurma dan tekstur lembut.",
     badges: [
       "/assets/best-product.png"
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 60,
+        priceTag: "Rp 60K",
+      },
+    ],
   },
   {
     id: 6,
     name: "Sagu Keju",
-    priceTag: "Rp 55K",
-    price: 55,
+    // priceTag: "Rp 55K",
+    // price: 55,
     image:
       "/assets/sagu-keju.jpeg",
     desc: "Kue sagu dengan tekstur ringan dan rasa keju yang gurih.",
     badges: [
       "/assets/best-seller.png",
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 60,
+        priceTag: "Rp 60K",
+      },
+    ],
   },
   {
     id: 7,
     name: "Semprit",
-    priceTag: "Rp 50K",
-    price: 50,
+    // priceTag: "Rp 50K",
+    // price: 50,
     image:
       "/assets/semprit.jpg",
     desc: "Kue kering klasik dengan tekstur renyah dan rasa manis ringan.",
     badges: [
       "/assets/best-product.png"
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 50,
+        priceTag: "Rp 50K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+    ],
   },
   {
     id: 8,
     name: "Lidah Kucing",
-    priceTag: "Rp 40K",
-    price: 40,
+    // priceTag: "Rp 40K",
+    // price: 40,
     image:
       "/assets/lidah-kucing.png",
     desc: "Kue tipis dengan tekstur renyah dan rasa butter yang ringan.",
     badges: [
       "/assets/best-product.png",
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 40,
+        priceTag: "Rp 40K",
+      },
+    ],
   },
   {
     id: 9,
     name: "Kurma Coklat",
-    priceTag: "Rp 50K",
-    price: 50,
+    // priceTag: "Rp 50K",
+    // price: 50,
     image:
       "/assets/kurma-coklat.jpeg",
     desc: "Kurma yang dilapisi coklat dengan rasa manis alami.",
     badges: [
       "/assets/best-product.png"
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 50,
+        priceTag: "Rp 50K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+    ],
   },
   {
     id: 10,
     name: "Coklat Mede",
-    priceTag: "Rp 55K",
-    price: 55,
+    // priceTag: "Rp 55K",
+    // price: 55,
     image:
       "/assets/coklat-mede.jpeg",
     desc: "Kue kering coklat dengan topping kacang mede yang memberikan tekstur renyah.",
     badges: [
       "/assets/best-product.png",
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 60,
+        priceTag: "Rp 60K",
+      },
+    ],
   },
   {
     id: 11,
     name: "Corn Flakes Cookies",
-    priceTag: "Rp 50K",
-    price: 50,
+    // priceTag: "Rp 50K",
+    // price: 50,
     image:
       "/assets/cornflesks-cookies.png",
     desc: "Kue kering dengan campuran corn flakes yang renyah.",
     badges: [
       "/assets/best-product.png"
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 50,
+        priceTag: "Rp 50K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+    ],
   },
   {
     id: 12,
     name: "Crekers Cookies",
-    priceTag: "Rp 50K",
-    price: 50,
+    // priceTag: "Rp 50K",
+    // price: 50,
     image:
       "/assets/crekers-cookies.jpeg",
     desc: "Kue kering dengan tekstur renyah dan rasa gurih.",
     badges: [
       "/assets/best-product.png",
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 50,
+        priceTag: "Rp 50K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+    ],
   },
   {
     id: 13,
     name: "Coklat Kacang",
-    priceTag: "Rp 50K",
-    price: 50,
+    // priceTag: "Rp 50K",
+    // price: 50,
     image:
       "/assets/coklat-kacang.jpeg",
     desc: "Coklat dengan campuran kacang yang memberikan rasa gurih dan tekstur renyah.",
     badges: [
       "/assets/best-product.png"
-    ]
+    ],
+     variants: [
+      {
+        id: "bulat-500",
+        label: "Toples Bulat 500g",
+        price: 50,
+        priceTag: "Rp 50K",
+      },
+      {
+        id: "tabung-800",
+        label: "Toples Tabung 800ml",
+        price: 55,
+        priceTag: "Rp 55K",
+      },
+    ],
   }
 ];
 
@@ -163,6 +339,8 @@ export default function App() {
   const [selected, setSelected] = useState(null);
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
+  const [selectedVariant, setSelectedVariant] = useState(null);
+  
   const formatRupiah = (number) =>
   `Rp ${number.toLocaleString("id-ID")}K`;
     useEffect(() => {
@@ -170,20 +348,40 @@ export default function App() {
       selected || cartOpen ? "hidden" : "auto";
   }, [selected, cartOpen]);
 
-  const addToCart = (product) => {
+const addToCart = () => {
   setCart((prev) => {
-    const exist = prev.find((p) => p.id === product.id);
+    const exist = prev.find(
+      (i) =>
+        i.productId === selected.id &&
+        i.variantId === selectedVariant.id
+    );
+
     if (exist) {
-      return prev.map((p) =>
-        p.id === product.id ? { ...p, qty: p.qty + 1 } : p
+      return prev.map((i) =>
+        i.productId === selected.id &&
+        i.variantId === selectedVariant.id
+          ? { ...i, qty: i.qty + 1 }
+          : i
       );
     }
-    return [...prev, { ...product, qty: 1 }];
+
+    return [
+      ...prev,
+      {
+        productId: selected.id,
+        name: selected.name,
+        variantId: selectedVariant.id,
+        variantLabel: selectedVariant.label,
+        price: selectedVariant.price,
+        priceTag: selectedVariant.priceTag,
+        qty: 1,
+      },
+    ];
   });
 };
 
 const totalPrice = cart.reduce(
-  (sum, item) => sum + item.price * item.qty,
+  (sum, i) => sum + i.price * i.qty,
   0
 );
 
@@ -193,7 +391,7 @@ const sendToWhatsApp = () => {
   const message = cart
     .map(
       (item, i) =>
-        `${i + 1}. ${item.name}\n   Qty: ${item.qty}\n   Harga/Toples: ${item.priceTag}\n  Subtotal: Rp ${item.price * item.qty}K`
+        `${i + 1}. ${item.name}\n Kemasan: ${item.variantLabel}\n  Qty: ${item.qty}\n   Harga/Toples: ${item.priceTag}\n  Subtotal: Rp ${item.price * item.qty}K`
     )
     .join("\n\n");
 
@@ -305,7 +503,7 @@ Terimakasih banyak 🙏
               </h3>
 
               <span className="mt-2 inline-block bg-[#7a3e1d] text-[#fff7e6] text-xs font-bold px-3 py-1 rounded-full w-fit">
-                {p.priceTag}
+                {p.variants[0].priceTag}
               </span>
             </div>
 
@@ -328,12 +526,14 @@ Terimakasih banyak 🙏
                 {/* ACTIONS */}
                 <div className="mt-auto pt-3 flex gap-2">
                   <button
-                    onClick={() => setSelected(p)}
+                    onClick={() => {
+                      setSelected(p);
+                      setSelectedVariant(p.variants[0]); // default varian pertama
+                    }}
                     className="flex-1 bg-[#7a3e1d] text-white text-xs py-2 rounded-full"
                   >
                     Lihat Detail
                   </button>
-            
                   <button
                     onClick={() => addToCart(p)}
                     className="w-10 bg-[#7a3e1d] text-white rounded-full flex items-center justify-center"
@@ -389,7 +589,7 @@ Terimakasih banyak 🙏
                     {selected.name}
                   </h3>
                   <div className="inline-block bg-[#7a3e1d] text-[#fff7e6] text-3xl font-bold px-8 py-3 rounded-full mt-2 mb-4 shadow-md">
-                    {selected.priceTag}
+                    {selectedVariant?.priceTag}
                   </div>
                 </div>
                 {selected.badges?.map((badge, i) => (
@@ -405,9 +605,38 @@ Terimakasih banyak 🙏
               <p className="text-[#7a3e1d] font-normal">
                 {selected.desc}
               </p>
-              <p className="text-[#7a3e1d] text-md font-semibold mb-4">
-                Ukuran Toples 500 Gram
-              </p>
+              <div className="mt-4">
+  <p className="text-sm font-semibold text-[#6b3a1e] mb-2">
+    Pilih Kemasan
+  </p>
+
+<div className="flex gap-2 mb-4">
+  {selected.variants.map((v) => (
+    <button
+      key={v.id}
+      onClick={() => setSelectedVariant(v)}
+      className={`flex-1 rounded-xl border px-3 py-3 text-sm
+        ${
+          selectedVariant?.id === v.id
+            ? "border-[#7a3e1d] bg-[#fff2e0]"
+            : "border-gray-200 bg-white"
+        }`}
+    >
+      <div className="grid grid-cols-[1fr_auto] items-center gap-2">
+        <span className="font-medium text-[#6b3a1e] leading-tight">
+          {v.label}
+        </span>
+
+        <span className="font-bold text-[#7a3e1d] whitespace-nowrap">
+          {v.priceTag}
+        </span>
+      </div>
+    </button>
+  ))}
+</div>
+
+</div>
+
 
               <button
                 onClick={() => {
