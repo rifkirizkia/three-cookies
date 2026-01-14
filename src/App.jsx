@@ -4,106 +4,158 @@ const products = [
   {
     id: 1,
     name: "Coklat Stick",
-    price: "Rp 55K",
+    priceTag: "Rp 55K",
+    price: 50,
     image:
       "/assets/coklat-stik.jpeg",
     desc: "Kue kering renyah dengan topping stik coklat.",
+    badges: [
+      "/assets/best-seller.png",
+    ]
   },
   {
     id: 2,
     name: "Kastengel",
-    price: "Rp 55K",
+    priceTag: "Rp 55K",
+    price: 55,
     image:
       "/assets/kastengel.jpeg",
     desc: "Kue kering keju dengan tekstur renyah dan rasa keju yang gurih.",
+    badges: [
+      "/assets/best-seller.png"
+    ]
   },
   {
     id: 3,
     name: "Putri Salju",
-    price: "Rp 50K",
+    priceTag: "Rp 50K",
+    price: 50,
     image:
       "/assets/putri-salju.jpeg",
     desc: "Kue lembut berbentuk bulat yang dilapisi gula halus dengan rasa manis seimbang.",
+    badges: [
+      "/assets/best-seller.png",
+    ]
   },
   {
     id: 4,
     name: "Nastar",
-    price: "Rp 55K",
+    priceTag: "Rp 55K",
+    price: 55,
     image:
       "/assets/nastar-klasik.jpeg",
     desc: "Kue lembut dengan isian selai nanas homemade dari buah nanas asli.",
+    badges: [
+      "/assets/best-seller.png"
+    ]
   },
   {
     id: 5,
     name: "Sultan Cookies",
-    price: "Rp 55K",
+    priceTag: "Rp 55K",
+    price: 55,
     image:
       "/assets/sultan-cookies.png",
     desc: "Kue kering berlapis dengan isian selai kurma dan tekstur lembut.",
+    badges: [
+      "/assets/best-product.png"
+    ]
   },
   {
     id: 6,
     name: "Sagu Keju",
-    price: "Rp 55K",
+    priceTag: "Rp 55K",
+    price: 55,
     image:
       "/assets/sagu-keju.jpeg",
     desc: "Kue sagu dengan tekstur ringan dan rasa keju yang gurih.",
+    badges: [
+      "/assets/best-seller.png",
+    ]
   },
   {
     id: 7,
     name: "Semprit",
-    price: "Rp 50K",
+    priceTag: "Rp 50K",
+    price: 50,
     image:
       "/assets/semprit.jpg",
     desc: "Kue kering klasik dengan tekstur renyah dan rasa manis ringan.",
+    badges: [
+      "/assets/best-product.png"
+    ]
   },
   {
     id: 8,
     name: "Lidah Kucing",
-    price: "Rp 40K",
+    priceTag: "Rp 40K",
+    price: 40,
     image:
       "/assets/lidah-kucing.png",
     desc: "Kue tipis dengan tekstur renyah dan rasa butter yang ringan.",
+    badges: [
+      "/assets/best-product.png",
+    ]
   },
   {
     id: 9,
     name: "Kurma Coklat",
-    price: "Rp 50K",
+    priceTag: "Rp 50K",
+    price: 50,
     image:
       "/assets/kurma-coklat.jpeg",
     desc: "Kurma yang dilapisi coklat dengan rasa manis alami.",
+    badges: [
+      "/assets/best-product.png"
+    ]
   },
   {
     id: 10,
     name: "Coklat Mede",
-    price: "Rp 55K",
+    priceTag: "Rp 55K",
+    price: 55,
     image:
       "/assets/coklat-mede.jpeg",
     desc: "Kue kering coklat dengan topping kacang mede yang memberikan tekstur renyah.",
+    badges: [
+      "/assets/best-product.png",
+    ]
   },
   {
     id: 11,
     name: "Corn Flakes Cookies",
-    price: "Rp 50K",
+    priceTag: "Rp 50K",
+    price: 50,
     image:
       "/assets/cornflesks-cookies.png",
     desc: "Kue kering dengan campuran corn flakes yang renyah.",
+    badges: [
+      "/assets/best-product.png"
+    ]
   },
   {
     id: 12,
     name: "Crekers Cookies",
-    price: "Rp 50K",
+    priceTag: "Rp 50K",
+    price: 50,
     image:
       "/assets/crekers-cookies.jpeg",
     desc: "Kue kering dengan tekstur renyah dan rasa gurih.",
+    badges: [
+      "/assets/best-product.png",
+    ]
   },
   {
     id: 13,
     name: "Coklat Kacang",
-    price: "Rp 50K",
+    priceTag: "Rp 50K",
+    price: 50,
     image:
       "/assets/coklat-kacang.jpeg",
     desc: "Coklat dengan campuran kacang yang memberikan rasa gurih dan tekstur renyah.",
+    badges: [
+      "/assets/best-product.png"
+    ]
   }
 ];
 
@@ -111,7 +163,8 @@ export default function App() {
   const [selected, setSelected] = useState(null);
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
-
+  const formatRupiah = (number) =>
+  `Rp ${number.toLocaleString("id-ID")}K`;
     useEffect(() => {
     document.body.style.overflow =
       selected || cartOpen ? "hidden" : "auto";
@@ -128,26 +181,36 @@ export default function App() {
     return [...prev, { ...product, qty: 1 }];
   });
 };
+
+const totalPrice = cart.reduce(
+  (sum, item) => sum + item.price * item.qty,
+  0
+);
+
 const sendToWhatsApp = () => {
   const phone = "6289668095182"; // GANTI NOMOR WA KAMU
 
   const message = cart
     .map(
       (item, i) =>
-        `${i + 1}. ${item.name}\n   Qty: ${item.qty}\n   Price: ${item.price}`
+        `${i + 1}. ${item.name}\n   Qty: ${item.qty}\n   Harga/Toples: ${item.priceTag}\n  Subtotal: Rp ${item.price * item.qty}K`
     )
     .join("\n\n");
 
   const totalQty = cart.reduce((sum, i) => sum + i.qty, 0);
-
+  const totalPrice = cart.reduce(
+    (sum, item) => sum + item.price * item.qty,
+    0
+  );
   const finalMessage = `
 Hallo THREE COOKIES 🍪
 Saya mau memesan kue berikut:
 
 ${message}
 
+--------------------
 Total kue: ${totalQty}
-
+Total Harga: Rp ${totalPrice}K
 Terimakasih banyak 🙏
   `;
 
@@ -220,44 +283,67 @@ Terimakasih banyak 🙏
           <div className="grid grid-cols-2 gap-4">
             {products.map((p) => (
               <div
-                key={p.id}
-                className="bg-[#fffaf0] rounded-2xl shadow-md overflow-hidden"
-              >
-                <img
-                  src={p.image}
-                  className="w-full h-32 object-cover"
-                />
+              key={p.id}
+              className="bg-[#fffaf0] rounded-2xl shadow-md overflow-hidden flex flex-col"
+            >
+              {/* IMAGE */}
+              <img
+                src={p.image}
+                alt={p.name}
+                className="w-full h-32 object-cover"
+              />
+            
+              {/* CONTENT */}
+              <div className="p-3 flex flex-col flex-1">
+              
+            {/* HEADER AREA */}
+            <div className="flex items-center">
+          {/* Expanded (Flutter) */}
+          <div className=" flex-col w-6xl">
+            <h3 className="text-sm font-semibold text-[#6b3a1e] leading-snug line-clamp-2">
+              {p.name}
+            </h3>
 
-                <div className="p-3">
-                  <div className="flex justify-between items-start">
-                    <h3 className="text-sm font-semibold text-[#6b3a1e] leading-tight">
-                      {p.name}
-                    </h3>
-                    <span className="text-sm font-semibold text-[#6b3a1e]">
-                      {p.price}
-                    </span>
-                  </div>
+            <span className="mt-2 inline-block bg-[#7a3e1d] text-[#fff7e6] text-xs font-bold px-3 py-1 rounded-full w-fit">
+              {p.priceTag}
+            </span>
+          </div>
 
-                  <p className="text-xs text-[#8b5a3c] mt-1">
-                    {p.desc}
-                  </p>
-                  <div className="mt-3 flex gap-2">
-                    <button
-                      onClick={() => setSelected(p)}
-                      className="flex-1 bg-[#7a3e1d] text-white text-xs py-2 rounded-full"
-                    >
-                      Lihat Detail
-                    </button>
-
-                    <button
-                      onClick={() => addToCart(p)}
-                      className="w-10 bg-[#7a3e1d] text-white rounded-full flex items-center justify-center"
-                    >
-                      🛒
-                    </button>
-                  </div>
+          {/* Image.asset (Flutter) */}
+          {p.badges?.map((badge, i) => (
+                            <img
+                              key={i}
+                              src={badge}
+                              alt="badge"
+                              className="w-18 h-18 object-contain"
+                            />
+                          ))}
+                </div>
+          
+                {/* DESCRIPTION */}
+                <p className="text-xs text-[#8b5a3c] mt-2 line-clamp-2">
+                  {p.desc}
+                </p>
+            
+                {/* ACTIONS */}
+                <div className="mt-auto pt-3 flex gap-2">
+                  <button
+                    onClick={() => setSelected(p)}
+                    className="flex-1 bg-[#7a3e1d] text-white text-xs py-2 rounded-full"
+                  >
+                    Lihat Detail
+                  </button>
+            
+                  <button
+                    onClick={() => addToCart(p)}
+                    className="w-10 bg-[#7a3e1d] text-white rounded-full flex items-center justify-center"
+                  >
+                    🛒
+                  </button>
                 </div>
               </div>
+            </div>
+            
             ))}
           </div>
         </section>
@@ -301,9 +387,9 @@ Terimakasih banyak 🙏
               <h3 className="text-xl font-semibold text-[#6b3a1e]">
                 {selected.name}
               </h3>
-              <p className="text-[#7a3e1d] text-3xl font-bold mt-2 mb-4">
-                {selected.price}
-              </p>
+              <div className="inline-block bg-[#7a3e1d] text-[#fff7e6] text-3xl font-bold px-8 py-3 rounded-full mt-2 mb-4 shadow-md">
+  {selected.priceTag}
+</div>
               <p className="text-[#7a3e1d] font-normal">
                 {selected.desc}
               </p>
@@ -336,7 +422,7 @@ Terimakasih banyak 🙏
           <div className="relative w-full max-w-[430px] h-[80vh] bg-[#fffaf0] rounded-t-3xl animate-slideUp overflow-y-auto">
             <div className="p-4 border-b flex justify-between items-center">
               <h3 className="font-semibold text-[#6b3a1e]">
-                Your Cart
+                Keranjang
               </h3>
               <button
                 onClick={() => setCartOpen(false)}
@@ -357,7 +443,7 @@ Terimakasih banyak 🙏
                       {item.name}
                     </p>
                     <p className="text-xs text-[#8b5a3c]">
-                      {item.price}
+                      {item.priceTag}
                     </p>
                   </div>
 
@@ -399,13 +485,16 @@ Terimakasih banyak 🙏
                 </div>
               ))}
             </div>
-
+            <div className="flex justify-between text-sm font-medium text-[#6b3a1e]  border-t py-2 px-4">
+              <span>Total Harga</span>
+              <span>{formatRupiah(totalPrice)}</span>
+            </div>
             <div className="p-4 border-t">
               <button
                 onClick={sendToWhatsApp}
                 className="w-full bg-green-600 text-white py-4 rounded-full font-semibold"
               >
-                Order via WhatsApp
+                Pesan via WhatsApp
               </button>
             </div>
           </div>
