@@ -342,6 +342,8 @@ export default function App() {
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [variantPopupOpen, setVariantPopupOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [customerName, setCustomerName] = useState("");
+  const [customerAddress, setCustomerAddress] = useState("");
   const formatRupiah = (number) =>
   `Rp ${number.toLocaleString("id-ID")}K`;
     useEffect(() => {
@@ -387,12 +389,21 @@ const totalPrice = cart.reduce(
 );
 
 const sendToWhatsApp = () => {
-  const phone = "6289668095182"; // GANTI NOMOR WA KAMU
+  if (!customerName.trim() || !customerAddress.trim()) {
+    alert("Mohon isi Nama dan Alamat terlebih dahulu 🙏");
+    return;
+  }
+
+  const phone = "62895343020317";
 
   const message = cart
     .map(
       (item, i) =>
-        `${i + 1}. ${item.name}\n Kemasan: ${item.variantLabel}\n  Qty: ${item.qty}\n   Harga/Toples: ${item.priceTag}\n  Subtotal: Rp ${item.price * item.qty}K`
+        `${i + 1}. ${item.name}
+Kemasan: ${item.variantLabel}
+Qty: ${item.qty}
+Harga/Toples: ${item.priceTag}
+Subtotal: Rp ${item.price * item.qty}K`
     )
     .join("\n\n");
 
@@ -401,8 +412,13 @@ const sendToWhatsApp = () => {
     (sum, item) => sum + item.price * item.qty,
     0
   );
+
   const finalMessage = `
 Hallo THREE COOKIES 🍪
+
+Nama: ${customerName}
+Alamat: ${customerAddress}
+
 Saya mau memesan kue berikut:
 
 ${message}
@@ -410,15 +426,14 @@ ${message}
 --------------------
 Total kue: ${totalQty}
 Total Harga: Rp ${totalPrice}K
-Terimakasih banyak 🙏
-  `;
 
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(
-    finalMessage
-  )}`;
+Terimakasih 🙏
+`;
 
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(finalMessage)}`;
   window.open(url, "_blank");
 };
+
 
   return (
     /* BACKGROUND FULL */
@@ -786,14 +801,52 @@ Terimakasih banyak 🙏
                 </div>
               ))}
             </div>
-            <div className="flex justify-between text-sm font-medium text-[#6b3a1e]  border-t py-2 px-4">
+            <div className="flex justify-between text-sm font-medium text-[#6b3a1e]  border-t border-b py-2 px-4">
               <span>Total Harga</span>
               <span>{formatRupiah(totalPrice)}</span>
             </div>
+             {/* Nama */}
+  <div className="px-4 pt-4">
+    <label className="block text-sm font-medium text-[#6b3a1e] mb-1">
+      Nama Pemesan <span className="text-red-500">*</span>
+    </label>
+    <input
+      type="text"
+      placeholder="Contoh: Rifki Rizkia"
+      value={customerName}
+      onChange={(e) => setCustomerName(e.target.value)}
+      className="w-full px-4 py-3 rounded-xl border border-[#e5d3c3] 
+      focus:outline-none focus:ring-2 focus:ring-[#7a3e1d] 
+      bg-white text-sm"
+    />
+  </div>
+
+  {/* Alamat */}
+  <div className="px-4 pb-4">
+    <label className="block text-sm font-medium text-[#6b3a1e] mb-1">
+      Alamat Lengkap <span className="text-red-500">*</span>
+    </label>
+    <textarea
+      rows={3}
+      placeholder="Contoh: Jl. Melati No. 10, Bandung"
+      value={customerAddress}
+      onChange={(e) => setCustomerAddress(e.target.value)}
+      className="w-full px-4 py-3 rounded-xl border border-[#e5d3c3] 
+      focus:outline-none focus:ring-2 focus:ring-[#7a3e1d] 
+      bg-white text-sm resize-none"
+    />
+  </div>
             <div className="p-4 border-t">
               <button
                 onClick={sendToWhatsApp}
-                className="w-full bg-green-600 text-white py-4 rounded-full font-semibold"
+                className={`
+                w-full py-4 rounded-full font-semibold transition-all duration-300
+                ${
+                  customerName && customerAddress
+                    ? "bg-green-600 text-white hover:bg-green-700 active:scale-95"
+                    : "bg-green-600/40 text-white cursor-not-allowed"
+                }
+              `}
               >
                 Pesan via WhatsApp
               </button>
