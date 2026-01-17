@@ -18,12 +18,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 60,
         priceTag: "Rp 60K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   },
@@ -44,12 +46,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 60,
         priceTag: "Rp 60K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   },
@@ -70,12 +74,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 50,
         priceTag: "Rp 50K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   },
@@ -96,12 +102,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 60,
         priceTag: "Rp 60K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   },
@@ -122,12 +130,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 60,
         priceTag: "Rp 60K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   },
@@ -148,12 +158,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 60,
         priceTag: "Rp 60K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   },
@@ -174,12 +186,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 50,
         priceTag: "Rp 50K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   },
@@ -200,6 +214,7 @@ const products = [
         label: "Toples Bulat 500g",
         price: 40,
         priceTag: "Rp 40K",
+        imageToples: "/assets/toples-bulat.png",
       },
     ],
   },
@@ -220,12 +235,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 50,
         priceTag: "Rp 50K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   },
@@ -246,12 +263,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 60,
         priceTag: "Rp 60K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   },
@@ -272,12 +291,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 50,
         priceTag: "Rp 50K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   },
@@ -298,12 +319,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 50,
         priceTag: "Rp 50K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   },
@@ -324,12 +347,14 @@ const products = [
         label: "Toples Bulat 500g",
         price: 50,
         priceTag: "Rp 50K",
+        imageToples: "/assets/toples-bulat.png",
       },
       {
         id: "tabung-800",
         label: "Toples Tabung 800ml",
         price: 55,
         priceTag: "Rp 55K",
+        imageToples: "/assets/toples-tabung.png",
       },
     ],
   }
@@ -574,7 +599,7 @@ Terimakasih 🙏
       
       {/* HEADER */}
       <div className="flex justify-between items-center mb-3">
-        <h3 className="text-lg font-bold text-[#6b3a1e]">
+        <h3 className="text-xl font-bold text-[#6b3a1e]">
           {selectedProduct.name}
         </h3>
         <button
@@ -584,7 +609,19 @@ Terimakasih 🙏
           ✕
         </button>
       </div>
-
+      <div className="flex items-center mt-2 mb-4">
+        {/* Foto Toples */}
+        {selectedVariant?.imageToples && (
+          <img
+            src={selectedVariant.imageToples}
+            alt={selectedVariant.label}
+            className="w-30 h-30 object-contain drop-shadow-md mr-4 rounded-xl"
+          />
+        )}
+      <span className="mt-2 inline-block bg-[#7a3e1d] text-[#fff7e6] text-2xl font-bold px-6 py-3 rounded-full w-fit">
+        {selectedVariant?.priceTag}
+      </span>
+      </div>
       <p className="text-sm text-[#8b5a3c] mb-4">
         {selectedProduct.desc}
       </p>
@@ -602,10 +639,12 @@ Terimakasih 🙏
                   : "border-gray-200 bg-white"
               }`}
           >
+            <img
+              src={v.imageToples}
+              alt={v.label}
+              className="w-12 h-12 object-contain rounded-md"
+            />
             <span className="font-medium">{v.label}</span>
-            <span className="font-bold text-[#7a3e1d] whitespace-nowrap">
-              {v.priceTag}
-            </span>
           </button>
         ))}
       </div>
@@ -660,10 +699,10 @@ Terimakasih 🙏
               />
               <div className="flex items-center justify-center">
                 <div className="flex-col w-6xl items-center justify-center">
-                  <h3 className="text-xl font-semibold text-[#6b3a1e]">
+                  <h3 className="text-3xl font-bold text-[#6b3a1e]">
                     {selected.name}
                   </h3>
-                  <div className="inline-block bg-[#7a3e1d] text-[#fff7e6] text-3xl font-bold px-8 py-3 rounded-full mt-2 mb-4 shadow-md">
+                  <div className="inline-block bg-[#7a3e1d] text-[#fff7e6] text-3xl font-bold px-8 py-3 rounded-full my-4 shadow-md">
                     {selectedVariant?.priceTag}
                   </div>
                 </div>
@@ -685,30 +724,29 @@ Terimakasih 🙏
                   Pilih Kemasan
                 </p>
 
-              <div className="flex gap-2 mb-4">
-                {selected.variants.map((v) => (
-                  <button
-                    key={v.id}
-                    onClick={() => setSelectedVariant(v)}
-                    className={`flex-1 rounded-xl border px-3 py-3 text-sm
-                      ${
-                        selectedVariant?.id === v.id
-                          ? "border-[#7a3e1d] bg-[#fff2e0]"
-                          : "border-gray-200 bg-white"
-                      }`}
-                  >
-                    <div className="grid grid-cols-[1fr_auto] items-center gap-2">
-                      <span className="font-medium text-[#6b3a1e] leading-tight">
-                        {v.label}
-                      </span>
+      {/* VARIANT OPTIONS */}
+      <div className="flex gap-3 pb-4">
+        {selectedProduct.variants.map((v) => (
+          <button
+            key={v.id}
+            onClick={() => setSelectedVariant(v)}
+            className={`flex-1 px-3 py-3 rounded-xl border text-sm flex justify-between items-center
+              ${
+                selectedVariant?.id === v.id
+                  ? "border-[#7a3e1d] bg-[#fff2e0]"
+                  : "border-gray-200 bg-white"
+              }`}
+          >
+            <img
+              src={v.imageToples}
+              alt={v.label}
+              className="w-12 h-12 object-contain rounded-md"
+            />
+            <span className="font-medium">{v.label}</span>
+          </button>
+        ))}
+      </div>
 
-                      <span className="font-bold text-[#7a3e1d] whitespace-nowrap">
-                        {v.priceTag}
-                      </span>
-                    </div>
-                  </button>
-                ))}
-              </div>
 
               </div>
 
@@ -806,36 +844,36 @@ Terimakasih 🙏
               <span>{formatRupiah(totalPrice)}</span>
             </div>
              {/* Nama */}
-  <div className="px-4 pt-4">
-    <label className="block text-sm font-medium text-[#6b3a1e] mb-1">
-      Nama Pemesan <span className="text-red-500">*</span>
-    </label>
-    <input
-      type="text"
-      placeholder="Contoh: Rifki Rizkia"
-      value={customerName}
-      onChange={(e) => setCustomerName(e.target.value)}
-      className="w-full px-4 py-3 rounded-xl border border-[#e5d3c3] 
-      focus:outline-none focus:ring-2 focus:ring-[#7a3e1d] 
-      bg-white text-sm"
-    />
-  </div>
+              <div className="px-4 pt-4">
+                <label className="block text-sm font-medium text-[#6b3a1e] mb-1">
+                  Nama Pemesan <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Contoh: Rifki Rizkia"
+                  value={customerName}
+                  onChange={(e) => setCustomerName(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-[#e5d3c3] 
+                  focus:outline-none focus:ring-2 focus:ring-[#7a3e1d] 
+                  bg-white text-sm"
+                />
+              </div>
 
-  {/* Alamat */}
-  <div className="px-4 pb-4">
-    <label className="block text-sm font-medium text-[#6b3a1e] mb-1">
-      Alamat Lengkap <span className="text-red-500">*</span>
-    </label>
-    <textarea
-      rows={3}
-      placeholder="Contoh: Jl. Melati No. 10, Bandung"
-      value={customerAddress}
-      onChange={(e) => setCustomerAddress(e.target.value)}
-      className="w-full px-4 py-3 rounded-xl border border-[#e5d3c3] 
-      focus:outline-none focus:ring-2 focus:ring-[#7a3e1d] 
-      bg-white text-sm resize-none"
-    />
-  </div>
+              {/* Alamat */}
+              <div className="px-4 pb-4">
+                <label className="block text-sm font-medium text-[#6b3a1e] mb-1">
+                  Alamat Lengkap <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  rows={3}
+                  placeholder="Contoh: Jl. Melati No. 10, Bandung"
+                  value={customerAddress}
+                  onChange={(e) => setCustomerAddress(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-[#e5d3c3] 
+                  focus:outline-none focus:ring-2 focus:ring-[#7a3e1d] 
+                  bg-white text-sm resize-none"
+                />
+              </div>
             <div className="p-4 border-t">
               <button
                 onClick={sendToWhatsApp}
