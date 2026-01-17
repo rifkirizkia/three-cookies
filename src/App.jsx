@@ -726,7 +726,7 @@ Terimakasih 🙏
 
       {/* VARIANT OPTIONS */}
       <div className="flex gap-3 pb-4">
-        {selectedProduct.variants.map((v) => (
+        {selected.variants.map((v) => (
           <button
             key={v.id}
             onClick={() => setSelectedVariant(v)}
