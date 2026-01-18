@@ -477,18 +477,9 @@ Terimakasih 🙏
             THREE COOKIES
           </h1>
           <p className="text-sm opacity-90">
-          Cookies Made with Love
+          Premium Homemade Cookies 🍪
           </p>
         </header>
-
-        {/* HERO IMAGE */}
-        {/* <div className="w-full">
-          <img
-            src="https://images.unsplash.com/photo-1590080877777-7b2bdf0aefb1"
-            alt="Cookies"
-            className="w-full h-[260px] object-cover"
-          />
-        </div> */}
 
       {/* TITLE */}
       <section className="px-4 pt-6">
@@ -496,22 +487,20 @@ Terimakasih 🙏
           Kue Favorit yang Dipercaya Ribuan Pelanggan
         </h2>
         <div className="relative grid grid-cols-2 gap-3 mt-4">
-    <img
-      src="/assets/bukti-order-1.jpeg"
-      className="rounded-2xl shadow-md"
-    />
-    <img
-      src="/assets/bukti-order-2.jpeg"
-      className="rounded-2xl shadow-md"
-    />
+          <img
+            src="/assets/bukti-order-1.jpeg"
+            className="rounded-2xl shadow-md"
+          />
+          <img
+            src="/assets/bukti-order-2.jpeg"
+            className="rounded-2xl shadow-md"
+          />
 
   </div>
         <p className="text-md text-center text-[#8b5a3c] mt-1 leading-relaxed">
         Sejak 2017, lebih dari 10.000+ kue kami telah menemani momen manis lebaran ribuan pelanggan.
         </p>
       </section>
-
-
           <div>
             <p className="text-lg flex justify-center font-bold text-[#6b3a1e] leading-relaxed mt-4">
               Etalase Kue Kering
@@ -592,77 +581,130 @@ Terimakasih 🙏
             ))}
           </div>
         </section>
+                {/* FOOTER */}
+                <footer className="bg-[#5a2b12] text-[#fff7e6] mt-10">
+                  <div className="px-4 py-6 text-center space-y-3">
+                    <h2 className="text-sm font-semibold tracking-wide">
+                      THREE COOKIES
+                    </h2>
+
+                    <p className="text-xs opacity-90">
+                      Premium Homemade Cookies 🍪
+                    </p>
+
+                    <div className="w-16 h-[1px] bg-[#fff7e6]/40 mx-auto my-2" />
+
+                    <p className="text-xs opacity-80">
+                      Menerima pesanan untuk:
+                    </p>
+
+                    <p className="text-xs font-medium">
+                      🎉 Lebaran • 🎂 Ulang Tahun • 💍 Acara • 🎁 Hampers
+                    </p>
+
+                    {/* CONTACT */}
+                    <div className="pt-2 space-y-1 text-xs">
+                      <p className="opacity-80">
+                        📸 Instagram:
+                        <a
+                          href="https://instagram.com/threecookies.bdg"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-1 font-semibold underline underline-offset-2"
+                        >
+                          @threecookies.bdg
+                        </a>
+                      </p>
+
+                      <p className="opacity-80">
+                        💬 WhatsApp:
+                        <a
+                          href="https://wa.me/62895343020317"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-1 font-semibold underline underline-offset-2"
+                        >
+                          0895-3430-20317
+                        </a>
+                      </p>
+                    </div>
+
+                    <p className="text-[10px] opacity-60 mt-4">
+                      © {new Date().getFullYear()} THREE COOKIES
+                    </p>
+                  </div>
+                </footer>
+
       </div>
       {variantPopupOpen && selectedProduct && (
-  <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40">
-    <div className="w-full max-w-md bg-[#fffaf0] rounded-t-3xl p-5">
-      
-      {/* HEADER */}
-      <div className="flex justify-between items-center mb-3">
-        <h3 className="text-xl font-bold text-[#6b3a1e]">
-          {selectedProduct.name}
-        </h3>
-        <button
-          onClick={() => setVariantPopupOpen(false)}
-          className="text-xl"
-        >
-          ✕
-        </button>
-      </div>
-      <div className="flex items-center mt-2 mb-4">
-        {/* Foto Toples */}
-        {selectedVariant?.imageToples && (
-          <img
-            src={selectedVariant.imageToples}
-            alt={selectedVariant.label}
-            className="w-30 h-30 object-contain drop-shadow-md mr-4 rounded-xl"
-          />
-        )}
-      <span className="mt-2 inline-block bg-[#7a3e1d] text-[#fff7e6] text-2xl font-bold px-6 py-3 rounded-full w-fit">
-        {selectedVariant?.priceTag}
-      </span>
-      </div>
-      <p className="text-sm text-[#8b5a3c] mb-4">
-        {selectedProduct.desc}
-      </p>
+        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40">
+          <div className="w-full max-w-md bg-[#fffaf0] rounded-t-3xl p-5">
+            
+            {/* HEADER */}
+            <div className="flex justify-between items-center mb-3">
+              <h3 className="text-xl font-bold text-[#6b3a1e]">
+                {selectedProduct.name}
+              </h3>
+              <button
+                onClick={() => setVariantPopupOpen(false)}
+                className="text-xl"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="flex items-center mt-2 mb-4">
+              {/* Foto Toples */}
+              {selectedVariant?.imageToples && (
+                <img
+                  src={selectedVariant.imageToples}
+                  alt={selectedVariant.label}
+                  className="w-30 h-30 object-contain drop-shadow-md mr-4 rounded-xl"
+                />
+              )}
+            <span className="mt-2 inline-block bg-[#7a3e1d] text-[#fff7e6] text-2xl font-bold px-6 py-3 rounded-full w-fit">
+              {selectedVariant?.priceTag}
+            </span>
+            </div>
+            <p className="text-sm text-[#8b5a3c] mb-4">
+              {selectedProduct.desc}
+            </p>
 
-      {/* VARIANT OPTIONS */}
-      <div className="flex gap-3">
-        {selectedProduct.variants.map((v) => (
-          <button
-            key={v.id}
-            onClick={() => setSelectedVariant(v)}
-            className={`flex-1 px-3 py-3 rounded-xl border text-sm flex justify-between items-center
-              ${
-                selectedVariant?.id === v.id
-                  ? "border-[#7a3e1d] bg-[#fff2e0]"
-                  : "border-gray-200 bg-white"
-              }`}
-          >
-            <img
-              src={v.imageToples}
-              alt={v.label}
-              className="w-12 h-12 object-contain rounded-md"
-            />
-            <span className="font-medium">{v.label}</span>
-          </button>
-        ))}
-      </div>
+            {/* VARIANT OPTIONS */}
+            <div className="flex gap-3">
+              {selectedProduct.variants.map((v) => (
+                <button
+                  key={v.id}
+                  onClick={() => setSelectedVariant(v)}
+                  className={`flex-1 px-3 py-3 rounded-xl border text-sm flex justify-between items-center
+                    ${
+                      selectedVariant?.id === v.id
+                        ? "border-[#7a3e1d] bg-[#fff2e0]"
+                        : "border-gray-200 bg-white"
+                    }`}
+                >
+                  <img
+                    src={v.imageToples}
+                    alt={v.label}
+                    className="w-12 h-12 object-contain rounded-md"
+                  />
+                  <span className="font-medium">{v.label}</span>
+                </button>
+              ))}
+            </div>
 
-      {/* ACTION */}
-      <button
-        onClick={() => {
-          addToCart(selectedProduct, selectedVariant);
-          setVariantPopupOpen(false);
-        }}
-        className="w-full mt-5 bg-[#7a3e1d] text-white py-4 rounded-full font-semibold"
-      >
-        Tambah ke Keranjang
-      </button>
-    </div>
-  </div>
-)}
-
+            {/* ACTION */}
+            <button
+              onClick={() => {
+                addToCart(selectedProduct, selectedVariant);
+                setVariantPopupOpen(false);
+              }}
+              className="w-full mt-5 bg-[#7a3e1d] text-white py-4 rounded-full font-semibold"
+            >
+              Tambah ke Keranjang
+            </button>
+          </div>
+        </div>
+      )}
       {/* FLOATING CART ICON */}
       {cart.length > 0 && (
         <button
@@ -892,6 +934,7 @@ Terimakasih 🙏
           </div>
         </div>
       )}
+      
     </div>
   );
 }
