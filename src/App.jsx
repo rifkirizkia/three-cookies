@@ -407,6 +407,35 @@ const addToCart = (product, variant) => {
     ];
   });
 };
+ // =========================
+  // INCREASE QTY
+  // =========================
+  const increaseQty = (item) => {
+    setCart((prev) =>
+      prev.map((p) =>
+        p.productId === item.productId &&
+        p.variantId === item.variantId
+          ? { ...p, qty: p.qty + 1 }
+          : p
+      )
+    );
+  };
+
+  // =========================
+  // DECREASE QTY
+  // =========================
+  const decreaseQty = (item) => {
+    setCart((prev) =>
+      prev
+        .map((p) =>
+          p.productId === item.productId &&
+          p.variantId === item.variantId
+            ? { ...p, qty: p.qty - 1 }
+            : p
+        )
+        .filter((p) => p.qty > 0)
+    );
+  };
 
 const totalPrice = cart.reduce(
   (sum, i) => sum + i.price * i.qty,
@@ -831,7 +860,7 @@ Terimakasih 🙏
             <div className="p-4 space-y-4">
               {cart.map((item) => (
                 <div
-                  key={item.id}
+                  key={`${item.productId}-${item.variantId}`}
                   className="flex justify-between items-center"
                 >
                   <div>
@@ -845,17 +874,7 @@ Terimakasih 🙏
 
                   <div className="flex items-center gap-2">
                     <button
-                      onClick={() =>
-                        setCart((prev) =>
-                          prev
-                            .map((p) =>
-                              p.id === item.id
-                                ? { ...p, qty: p.qty - 1 }
-                                : p
-                            )
-                            .filter((p) => p.qty > 0)
-                        )
-                      }
+                     onClick={() => decreaseQty(item)}
                       className="w-7 h-7 bg-gray-200 rounded-full"
                     >
                       −
@@ -864,15 +883,7 @@ Terimakasih 🙏
                     <span>{item.qty}</span>
 
                     <button
-                      onClick={() =>
-                        setCart((prev) =>
-                          prev.map((p) =>
-                            p.id === item.id
-                              ? { ...p, qty: p.qty + 1 }
-                              : p
-                          )
-                        )
-                      }
+                     onClick={() => increaseQty(item)}
                       className="w-7 h-7 bg-gray-200 rounded-full"
                     >
                       +
